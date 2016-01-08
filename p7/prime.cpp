@@ -13,37 +13,12 @@ int isprime(int num){
 	return 1;
 }
 
-int effprime(int num){
-	char *str = (char *) malloc(sizeof(char) * 10);
-	sprintf(str, "%d", num);
-	
-	int sum = 0;
-	while(*str){
-		sum += *str++ - '0';
-	}
-
-	str -= 2;
-	int tmp = atoi(str);
-	if(tmp > 7){
-		if(tmp % 2 == 0)
-			return 0;
-		else if(sum % 3 == 0)
-			return 0;
-		else if(tmp % 4 == 0)
-			return 0;
-		else if(tmp % 5 == 0)
-			return 0;
-	}
-
-	return isprime(num);
-}
-
 int main(){
-	int num = 10001;
+	int i = 0;
 	int prime = 2;
-	while(num){
-		if(effprime(prime))
-			num--;
+	while(i < 10001){
+		if(isprime(prime))
+			i++;
 
 		prime++;
 	}
