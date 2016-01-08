@@ -24,21 +24,22 @@ int effprime(int num){
 
 	str -= 2;
 	int tmp = atoi(str);
-	
-	if(tmp % 2 == 0)
-		return 0;
-	else if(sum % 3 == 0)
-		return 0;
-	else if(tmp % 4 == 0)
-		return 0;
-	else if(tmp % 5 == 0)
-		return 0;
+	if(tmp > 7){
+		if(tmp % 2 == 0)
+			return 0;
+		else if(sum % 3 == 0)
+			return 0;
+		else if(tmp % 4 == 0)
+			return 0;
+		else if(tmp % 5 == 0)
+			return 0;
+	}
 
 	return isprime(num);
 }
 
 int main(){
-	int num = 10000;
+	int num = 10001;
 	int prime = 2;
 	while(num){
 		if(effprime(prime))
