@@ -1,10 +1,11 @@
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
-int isprime(int num){
-	for(int i = 2; i < num; i++){
-		if(num % i == 0)
+int isprime(int num, int *arr){
+	while(*arr){
+		if(num % *arr++ == 0)
 			return 0;
 	}
 
@@ -12,14 +13,24 @@ int isprime(int num){
 }
 
 int main(){
-	long long sum = 2;
-	for(int i = 3; i < 2000000; i += 2){
-		if(isprime(i)){
+	int *primes = (int *) malloc(sizeof(int) * 1000000);
+	primes[0] = 2;
+	primes[1] = 3;
+	int size = 2;
+	
+	unsigned long sum = 2 + 3;
+	for(int i = 5; i < 2000000; i++){
+		if(isprime(i, primes)){
 			sum += i;
-			cout << i << endl;
+			primes[size++] = i;
 		}
 	}
 	
 	cout << "sum=" << sum << endl;
 	return 0;
 }
+
+
+
+
+
