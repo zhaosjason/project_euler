@@ -5,38 +5,52 @@
 
 using namespace std;
 
-int findLargestProd(int grid[GRID_SIZE][GRID_SIZE]){
-	int max = 0;
+long findLargestProd(int grid[GRID_SIZE][GRID_SIZE]){
+	long max = 0;
 	for(int i = 0; i < GRID_SIZE; i++){
 		for(int j = 0; j < GRID_SIZE; j++){
-			if(i < GRID_SIZE - 4){
-				int prod = 1;
+			if(i < GRID_SIZE - 3){
+				long prod = 1;
 				for(int k = 0; k < 4; k++){
 					prod *= grid[i + k][j];
 				}
 
-				if(prod > max)
+				if(prod > max){
 					max = prod;
+				}
 			}
 
-			if(j < GRID_SIZE - 4){
-				int prod = 1;
+			if(j < GRID_SIZE - 3){
+				long prod = 1;
 				for(int k = 0; k < 4; k++){
 					prod *= grid[i][j + k];
 				}
 
-				if(prod > max)
+				if(prod > max){
 					max = prod;
+				}
 			}
 
-			if(i < GRID_SIZE - 4 && j < GRID_SIZE - 4){
-				int prod = 1;
+			if(i < GRID_SIZE - 3 && j < GRID_SIZE - 3){
+				long prod = 1;
 				for(int k = 0; k < 4; k++){
 					prod *= grid[i + k][j + k];
 				}
 
-				if(prod > max)
+				if(prod > max){
 					max = prod;
+				}
+			}
+
+			if(i < GRID_SIZE - 3 && j > 3){
+				long prod = 1;
+				for(int k = 0; k < 4; k++){
+					prod *= grid[i + k][j - k];
+				}
+
+				if(prod > max){
+					max = prod;
+				}
 			}
 		}
 	}
@@ -62,7 +76,7 @@ int main(){
 		}
 	}
 	
-	int prod = findLargestProd(grid);
+	long prod = findLargestProd(grid);
 	cout << "prod=" << prod << endl;
 	return 0;
 }
