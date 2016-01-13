@@ -1,3 +1,4 @@
+#include <cstdio>
 #include <iostream>
 #include <cctype>
 
@@ -78,5 +79,6 @@ int main(){
 	
 	long prod = findLargestProd(grid);
 	cout << "prod=" << prod << endl;
+	fclose(fd);
 	return 0;
 }
