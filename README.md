@@ -1,5 +1,5 @@
 #Project Euler
-My solutions to problems Project Euler.  My goal is to do one problem a day.
-Currently only in C/C++, but I am thinking about eventually working in some Python and other langs.
-Written by Jason Zhao.  2016.
+My solutions to Project Euler problems.  My goal is to do one problem a day.
+Solutions are mostly in C/C++, but I am working in some Python and Java too.
+Jason Zhao.  2016.
 
