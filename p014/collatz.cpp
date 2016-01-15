@@ -26,4 +26,5 @@ int main(){
 	}
 	
 	cout << "max=" << maxNum << endl;
+	return 0;
 }
