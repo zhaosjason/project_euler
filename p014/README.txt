@@ -1,4 +1,4 @@
-# Longest Collatz Sequence
+--- Longest Collatz Sequence ---
 
 Challenge: Find the starting number under one million that produces the longest Collatz chain.
 
