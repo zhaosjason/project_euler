@@ -23,7 +23,6 @@ def countLetters(num):
 	if num == 1000:
 		letters += nums[0] + nums[28];
 
-	print(str(num) + ": " + str(letters));
 	return letters;
 	
 
