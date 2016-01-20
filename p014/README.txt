@@ -4,6 +4,7 @@ Challenge: Find the starting number under one million that produces the longest 
 
 Answer: 837799
 
+TODO: Change unordered_map to array.  No need for hashtable
 
 
 Time to compute
