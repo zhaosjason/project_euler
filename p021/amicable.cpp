@@ -1,4 +1,8 @@
 #include <iostream>
+#include <cstdlib>
+#include <cmath>
+
+#define N 10000
 
 using namespace std;
 
@@ -9,7 +13,7 @@ int amicable(int num){
 		if(last == i)
 			break;
 
-		if(num % i){
+		if(num % i == 0){
 			last = num / i;
 			sum += i + last;
 		}
@@ -20,7 +24,8 @@ int amicable(int num){
 }
 
 int isAmicable(int num){
-	if(amicable(amicable(num)) == num)
+	int temp = amicable(num);
+	if(temp != num && amicable(temp) == num)
 		return 1;
 
 	return 0;
@@ -28,12 +33,13 @@ int isAmicable(int num){
 
 int main(){
 	int sum = 0;
-	for(int i = 1; i < 10000; i++){
-		cout << i << endl;
+	for(int i = 2; i < N; i++){
 		if(isAmicable(i))
 			sum += i;
 	}
 
+	
 	cout << "sum=" << sum << endl;
 	return 0;
 }
+
