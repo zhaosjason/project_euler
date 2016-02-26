@@ -1,41 +1,46 @@
 #include <stdio.h>
-#include <string.h>
-#include <math.h>
+#include <stdlib.h>
 
-#define BUFF_SIZE 250
+int cycleLength(int num) {
+	int *arr = calloc(1, sizeof(int) * (num + 1));
+	int numer = 1;
+	int denom = num;
 
-int cycleLength(long double num) {
-	char buff1[BUFF_SIZE];
-	char buff2[BUFF_SIZE];
 	int len = 0;
+	int rem = 0;
+	int i = 0;
 
-	int i;
-	for (i = 0; i < BUFF_SIZE; ++i) {
-		sprintf(buff1, "%d", (int) (num * pow(10, i)));
+	while (numer > 0) {
+		if (numer < denom)
+			numer *= 10;
+
+		rem = numer % denom;
+		if (arr[rem]) {
+			len = i - arr[rem];
+			break;
+		}	
 		
-		int temp = (int) (num * pow(10, i));
-		long double next = (num * pow(10, i)) - temp;
-		sprintf(buff2, "%d", (int) (next * pow(10, i)));
-		
-		if (!strcmp(buff1, buff2)) {
-			return len;
-		}
+		arr[rem] = i++;
+		numer = rem;	
 	}
 
-	return -1;
+	free(arr);
+	return len;
 }
 
-int main() {
+int main(int argc, char **argv) {
 	int max = 0;
+	int num;
 
 	int i;
-	for (i = 0; i < 1000; ++i) {
-		int num = cycleLength(1.0 / (double) i);
-		if (num > max) {
-			max = num;
+	for (i = 2; i < 1000; ++i) {
+		int temp;
+		if((temp = cycleLength(i)) > max) {
+			max = temp;
+			num = i;
 		}
 	}
 
-	printf("len = %d\n", max);
+	printf("num=%d   len=%d\n", num, max);
 	return 0;
 }
