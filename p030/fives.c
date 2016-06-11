@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+// Uncomment for debug info
+//#define DEBUG 1
+
 // Max # of digits = 6 * 9^5 = 354294 => 6 digits
 #define MAX_DIGITS 6
 
@@ -32,6 +35,7 @@ int num_digits(int num) {
 int main(void) {
 	init();
 
+#ifdef DEBUG
 	printf("digits: ");
 	int i;
 	for (i = 0; i < MAX_DIGITS; i++)
@@ -45,6 +49,7 @@ int main(void) {
 	printf("digits(123456)  = %d\n", num_digits(123456));
 	printf("digits(300000)  = %d\n", num_digits(300000));
 	printf("digits(87305)   = %d\n", num_digits(87305));
+#endif
 
 	return 0;
 }
